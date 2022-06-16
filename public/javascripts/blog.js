@@ -3,7 +3,7 @@
 /* AJAX Load Blog Posts */
 function loadPosts(){
 
-    console.log("Load Post Data");
+    // console.log("Load Post Data");
 
     var xhttp = new XMLHttpRequest();
 
@@ -49,7 +49,7 @@ function loadPosts(){
 /* AJAX Submit New Blog Post */
 function submitPost(){
 
-    console.log("Submit Post");
+    // console.log("Submit Post");
 
     var xhttp = new XMLHttpRequest();
 
@@ -88,7 +88,7 @@ function submitPost(){
 /* AJAX Delete Blog Post */
 function deletePost(){
 
-    console.log("Delete Post");
+    // console.log("Delete Post");
 
     var xhttp = new XMLHttpRequest();
 
@@ -121,7 +121,7 @@ function deletePost(){
 /* AJAX Login */
 function login(){
 
-    console.log("Login");
+    // console.log("Login");
 
     var xhttp = new XMLHttpRequest();
 
@@ -157,7 +157,7 @@ function login(){
 /* AJAX Signup */
 function signup(){
 
-    console.log("Sign Up");
+    // console.log("Sign Up");
 
     var xhttp = new XMLHttpRequest();
 
@@ -189,7 +189,7 @@ function signup(){
 /* AJAX Logout */
 function logout(){
 
-    console.log("Logout");
+    // console.log("Logout");
 
     var xhttp = new XMLHttpRequest();
 

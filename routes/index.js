@@ -5,13 +5,13 @@ var sanitizeHtml = require('sanitize-html');
 router.get('/posts', function(req, res, next) {
 
   if('user' in req.session){
-      console.log(req.session.user);
+      // console.log(req.session.user);
   }
 
   req.pool.getConnection( function(err,connection) {
       if (err) {
         res.sendStatus(500);
-        console.error(err);
+        // console.error(err);
         return;
       }
       var query = `SELECT  users.given_name AS author_name,
@@ -27,7 +27,7 @@ router.get('/posts', function(req, res, next) {
         connection.release(); // release connection
         if (err) {
           res.sendStatus(500);
-          console.error(err);
+          // console.error(err);
           return;
         }
         res.json(rows); //send response
@@ -51,14 +51,14 @@ router.post('/posts/new', function(req, res, next) {
         req.pool.getConnection( function(err,connection) {
             if (err) {
               res.sendStatus(500);
-              console.error(err);
+              // console.error(err);
               return;
             }
             var query = `INSERT INTO posts (author,title,content,timestamp) VALUES (?,?,?,NOW());`;
             connection.query(query, [req.body.author.u_id,req.body.title,sanitizeHtml(req.body.content)], function(err, rows, fields) {
                 if (err) {
                     res.sendStatus(500);
-                    console.error(err);
+                    // console.error(err);
                     connection.release(); // release connection if error
                     return;
                 }
@@ -76,14 +76,14 @@ router.post('/posts/new', function(req, res, next) {
 
 router.get('/posts/:post_id/comments', function(req, res, next) {
 
-  if('user' in req.session){
-      console.log(req.session.user);
-  }
+  // if('user' in req.session){
+  //     console.log(req.session.user);
+  // }
 
   req.pool.getConnection( function(err,connection) {
       if (err) {
         res.sendStatus(500);
-        console.error(err);
+        // console.error(err);
         return;
       }
       var query = `SELECT users.given_name AS author_name,
@@ -98,7 +98,7 @@ router.get('/posts/:post_id/comments', function(req, res, next) {
         connection.release(); // release connection
         if (err) {
           res.sendStatus(500);
-          console.error(err);
+          // console.error(err);
           return;
         }
         res.json(rows); //send response
@@ -127,7 +127,7 @@ router.post('/posts/:post_id/delete', function(req, res, next) {
   req.pool.getConnection( function(err,connection) {
       if (err) {
         res.sendStatus(500);
-        console.error(err);
+        // console.error(err);
         return;
       }
       var query = `DELETE FROM posts WHERE p_id=?;`;
@@ -135,7 +135,7 @@ router.post('/posts/:post_id/delete', function(req, res, next) {
         connection.release(); // release connection
         if (err) {
           res.sendStatus(500);
-          console.error(err);
+          // console.error(err);
           return;
         }
         res.json(rows); //send response
