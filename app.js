@@ -37,6 +37,7 @@ app.use(session({
 
 app.use(function(req, res, next) {
     if('user' in req.session){
+        console.log(req.session.user);
         res.cookie('role', req.session.user.role);
     } else {
         res.cookie('role', 'anon');
